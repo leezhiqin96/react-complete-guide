@@ -10,7 +10,7 @@ function ExpenseItem(props) {
 
   const clickHandler = () => {
     setTitle("Updated!");
-    // First click Title will still be the old title
+    // First click, title will still be the old title
     console.log(title);
   };
 
