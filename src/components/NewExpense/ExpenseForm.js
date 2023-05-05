@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   // Multiple States
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
@@ -48,12 +48,15 @@ const ExpenseForm = () => {
   const submitHandler = (event) => {
     event.preventDefault();
 
-    const expenseDate = {
+    const expenseData = {
       title: enteredTitle,
       amount: enteredAmount,
       date: new Date(enteredDate),
     };
 
+    // Data and function passed from NewExpense.js
+    // Takes in User input and call the method onSaveExpenseData from NewExpense.js
+    props.onSaveExpenseData(expenseData);
     // To clear the input form (Two-way binding)
     setEnteredTitle("");
     setEnteredAmount("");
