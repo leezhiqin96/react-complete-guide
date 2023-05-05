@@ -1,7 +1,7 @@
 // Imported React by default
 import React from "react";
 import "./App.css";
-import Expenses from "./components/Expenses";
+import Expenses from "./components/Expenses/Expenses";
 
 function App() {
   const expenses = [
@@ -26,18 +26,19 @@ function App() {
     },
   ];
 
-  return React.createElement(
-    "div",
-    {},
-    React.createElement("h2", {}, "Let's get started!"),
-    React.createElement(Expenses, { items: expenses })
-  );
-
-  // return (
-  //   <div className="App">
-  //     <Expenses items={expenses} />
-  //   </div>
+  // JSX version of the HTML code version below
+  // return React.createElement(
+  //   "div",
+  //   {},
+  //   React.createElement("h2", {}, "Let's get started!"),
+  //   React.createElement(Expenses, { items: expenses })
   // );
+
+  return (
+    <div className="App">
+      <Expenses items={expenses} />
+    </div>
+  );
 }
 
 export default App;
