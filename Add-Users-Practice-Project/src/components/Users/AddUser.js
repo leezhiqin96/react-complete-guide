@@ -15,10 +15,14 @@ const AddUser = (props) => {
       return;
     }
 
+    // + symbol converts string to integer
     if (+enteredAge < 1) {
       return;
     }
-    console.log(enteredAge, enteredUsername);
+
+    // Action defined in app.js, lifting the state up
+    props.onAddUser(enteredUsername, enteredAge);
+
     setEnteredUsername("");
     setEnteredAge("");
   };
