@@ -38,6 +38,8 @@ const AddUser = (props) => {
 
     // Action defined in app.js, lifting the state up
     props.onAddUser(enteredUsername, enteredAge);
+    nameInputRef.current.value = "";
+    ageInputRef.current.value = "";
   };
 
   const errorHandler = () => {
