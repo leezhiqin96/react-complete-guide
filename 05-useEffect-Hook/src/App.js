@@ -14,6 +14,7 @@ function App() {
     setIsLoggedIn(true);
   };
 
+  // useEffect Hook
   useEffect(() => {
     const storedInfo = localStorage.getItem("isLoggedIn");
 
@@ -23,6 +24,7 @@ function App() {
   }, []);
 
   const logoutHandler = () => {
+    // Removes item from browser's local storage
     localStorage.removeItem("isLoggedIn");
     setIsLoggedIn(false);
   };
