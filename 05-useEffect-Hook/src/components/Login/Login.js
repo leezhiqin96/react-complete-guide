@@ -16,9 +16,18 @@ const Login = (props) => {
   // when the component mounts and clean them up when the component unmounts.
   useEffect(() => {
     // Run if dependencies changes
-    setFormIsValid(
-      enteredEmail.includes("@") && enteredPassword.trim().length > 6
-    );
+    const identifier = setTimeout(() => {
+      console.log("Checking form validity");
+      setFormIsValid(
+        enteredEmail.includes("@") && enteredPassword.trim().length > 6
+      );
+    }, 500);
+
+    // cleanup function
+    return () => {
+      console.log("Clearing timer");
+      clearTimeout(identifier);
+    };
   }, [enteredEmail, enteredPassword]);
 
   const emailChangeHandler = (event) => {
