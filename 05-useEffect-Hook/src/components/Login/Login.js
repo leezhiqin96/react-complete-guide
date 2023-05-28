@@ -41,35 +41,37 @@ const Login = (props) => {
     isValid: null,
   });
 
+  // deconstruction method
+  const { isValid: emailIsValid } = emailState;
+  const { isValid: passwordIsValid } = passwordState;
   // Subscriptions or event listeners: If you need to subscribe to an event or set up event listeners,
   // such as listening for scroll events or keyboard input, useEffect allows you to register the event listeners
   // when the component mounts and clean them up when the component unmounts.
-  // useEffect(() => {
-  //   // Run if dependencies changes
-  //   const identifier = setTimeout(() => {
-  //     console.log("Checking form validity");
-  //     setFormIsValid(
-  //       enteredEmail.includes("@") && enteredPassword.trim().length > 6
-  //     );
-  //   }, 500);
+  useEffect(() => {
+    // Run if dependencies changes
+    const identifier = setTimeout(() => {
+      console.log("Checking form validity");
+      setFormIsValid(emailState.isValid && passwordState.isValid);
+    }, 500);
 
-  //   // cleanup function
-  //   return () => {
-  //     console.log("Clearing timer");
-  //     clearTimeout(identifier);
-  //   };
-  // }, [enteredEmail, enteredPassword]);
+    // cleanup function
+    return () => {
+      console.log("Clearing timer");
+      clearTimeout(identifier);
+    };
+    // effect only runs when validlity changes
+  }, [emailIsValid, passwordIsValid]);
 
   const emailChangeHandler = (event) => {
     dispatchEmail({ type: "USER_INPUT", val: event.target.value });
 
-    setFormIsValid(event.target.value.includes("@") && passwordState.isValid);
+    // setFormIsValid(event.target.value.includes("@") && passwordState.isValid);
   };
 
   const passwordChangeHandler = (event) => {
     dispatchPassword({ type: "USER_INPUT", val: event.target.value });
 
-    setFormIsValid(emailState.isValid && event.target.value.trim().length > 6);
+    // setFormIsValid(emailState.isValid && event.target.value.trim().length > 6);
   };
 
   const validateEmailHandler = () => {
