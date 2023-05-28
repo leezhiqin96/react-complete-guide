@@ -98,6 +98,8 @@ const Login = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+    // The forwardRef function in React allows you to forward a ref from a
+    // child component to a DOM element or a component that is higher in the component tree.
     if (formIsValid) {
       authCtx.onLogin(emailState.value, passwordState.value);
     } else if (!emailIsValid) {
