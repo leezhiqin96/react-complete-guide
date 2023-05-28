@@ -41,9 +41,10 @@ const Login = (props) => {
     isValid: null,
   });
 
-  // deconstruction method
+  // object destructuring, to use as dependencies in useEffect
   const { isValid: emailIsValid } = emailState;
   const { isValid: passwordIsValid } = passwordState;
+
   // Subscriptions or event listeners: If you need to subscribe to an event or set up event listeners,
   // such as listening for scroll events or keyboard input, useEffect allows you to register the event listeners
   // when the component mounts and clean them up when the component unmounts.
