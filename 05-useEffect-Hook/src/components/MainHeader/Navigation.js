@@ -21,7 +21,8 @@ const Navigation = (props) => {
         )}
         {context.isLoggedIn && (
           <li>
-            <button onClick={props.onLogout}>Logout</button>
+            {/* can pass function through context as well */}
+            <button onClick={context.onLogout}>Logout</button>
           </li>
         )}
       </ul>
